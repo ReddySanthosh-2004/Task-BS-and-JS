@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <script>
+        var img = null;
+        var interval = null;
+        var isAnimating = false;
+
+        function init() {
+            img = document.getElementById('myimg');
+            img.style.position = 'relative';
+            img.style.left = '0px';
+        }
+
+        function startStopAnimation() {
+            if (isAnimating) {
+                clearInterval(interval);
+                document.getElementById('animateButton').value = 'Start';
+            } else {
+                interval = setInterval(moveRight, 100);
+                document.getElementById('animateButton').value = 'Stop';
+            }
+            isAnimating = !isAnimating;
+        }
+
+        function moveRight() {
+            img.style.left = parseInt(img.style.left) + 10 + 'px';
+        }
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <form>
+        <img id="myimg" src="c:\Users\santh\OneDrive\Pictures\Screenshots\Screenshot 2024-06-20 220437.png" />
+        <center>
+            <p><b>Click the below button to start/stop the animation</b> </p>
+            <input type="button" id="animateButton" value="Start" onclick="startStopAnimation();" />
+        </center>
+    </form>
+</body>
+</html>
